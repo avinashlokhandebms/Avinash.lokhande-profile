@@ -182,10 +182,11 @@ const contactConfig = {
 };
 
 const socialprofils = {
-    github: "https://github.com",
-    facebook: "https://facebook.com",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
+    github: "https://github.com/avinashlokhandebms",
+    facebook: "https://www.facebook.com/avinash.lokhande.3194/",
+    //linkedin: "https://linkedin.com",
+   // twitter: "https://twitter.com",
+    instagram: "https://www.instagram.com/__itz__avinash__code_crushers_/"
 };
 
 export {
