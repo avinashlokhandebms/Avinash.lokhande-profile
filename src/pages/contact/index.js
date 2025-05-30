@@ -40,7 +40,7 @@ export const ContactUs = () => {
           console.log(result.text);
           setFormdata({
             loading: false,
-            alertmessage: "SUCCESS! ,Thankyou for your messege",
+            alertmessage: "SUCCESS! Thank you for your message",
             variant: "success",
             show: true,
           });
@@ -48,11 +48,13 @@ export const ContactUs = () => {
         (error) => {
           console.log(error.text);
           setFormdata({
-            alertmessage: `Faild to send!,${error.text}`,
+            alertmessage: `Failed to send! ${error.text}`,
             variant: "danger",
             show: true,
           });
-          document.getElementsByClassName("co_alert")[0].scrollIntoView();
+          document.getElementsByClassName("co_alert")[0].scrollIntoView({
+            behavior: "smooth"
+          });
         }
       );
   };
@@ -74,16 +76,15 @@ export const ContactUs = () => {
         </Helmet>
         <Row className="mb-5 mt-3 pt-md-3">
           <Col lg="8">
-            <h1 className="display-4 mb-4">Contact Me</h1>
+            <h1 className="display-4 mb-4 contact-title">Contact Me</h1>
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
         <Row className="sec_sp">
           <Col lg="12">
             <Alert
-              //show={formData.show}
               variant={formData.variant}
-              className={`rounded-0 co_alert ${
+              className={`rounded-0 co_alert alert-animate ${
                 formData.show ? "d-block" : "d-none"
               }`}
               onClose={() => setFormdata({ show: false })}
@@ -92,7 +93,7 @@ export const ContactUs = () => {
               <p className="my-0">{formData.alertmessage}</p>
             </Alert>
           </Col>
-          <Col lg="5" className="mb-5">
+          <Col lg="5" className="mb-5 contact-info">
             <h3 className="color_sec py-4">Get in touch</h3>
             <address>
               <strong>Email:</strong>{" "}
@@ -112,11 +113,11 @@ export const ContactUs = () => {
             <p>{contactConfig.description}</p>
           </Col>
           <Col lg="7" className="d-flex align-items-center">
-            <form onSubmit={handleSubmit} className="contact__form w-100">
+            <form onSubmit={handleSubmit} className="contact__form w-100 form-animate">
               <Row>
                 <Col lg="6" className="form-group">
                   <input
-                    className="form-control"
+                    className="form-control input-animate"
                     id="name"
                     name="name"
                     placeholder="Name"
@@ -128,7 +129,7 @@ export const ContactUs = () => {
                 </Col>
                 <Col lg="6" className="form-group">
                   <input
-                    className="form-control rounded-0"
+                    className="form-control rounded-0 input-animate"
                     id="email"
                     name="email"
                     placeholder="Email"
@@ -140,7 +141,7 @@ export const ContactUs = () => {
                 </Col>
               </Row>
               <textarea
-                className="form-control rounded-0"
+                className="form-control rounded-0 input-animate"
                 id="message"
                 name="message"
                 placeholder="Message"
@@ -152,7 +153,7 @@ export const ContactUs = () => {
               <br />
               <Row>
                 <Col lg="12" className="form-group">
-                  <button className="btn ac_btn" type="submit">
+                  <button className="btn ac_btn btn-animate" type="submit">
                     {formData.loading ? "Sending..." : "Send"}
                   </button>
                 </Col>
