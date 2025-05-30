@@ -127,3 +127,112 @@ button.btn.ac_btn:hover {
         transform: translateX(0);
     }
 }
+
+/* Responsive Styles */
+@media (max-width: 1199.98px) {
+    /* Large devices (desktops, less than 1200px) */
+    .contact__form .form-control {
+        padding: 1rem .75rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    /* Medium devices (tablets, less than 992px) */
+    .contact-info, .form-animate {
+        animation: fadeInUp 0.8s ease both;
+    }
+
+    .contact-info {
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .contact__form input.form-control {
+        margin-bottom: 1.5em;
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Small devices (landscape phones, less than 768px) */
+    .contact-title {
+        font-size: 2.5rem;
+    }
+
+    .contact__form .form-control {
+        padding: 0.8rem .75rem;
+    }
+
+    .btn-animate {
+        width: 100%;
+        padding: 0.75rem;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+@media (max-width: 575.98px) {
+    /* Extra small devices (portrait phones, less than 576px) */
+    .contact-title {
+        font-size: 2rem;
+    }
+
+    .contact__form .row > .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .contact__form input.form-control {
+        height: calc(2em + .75rem + 2px);
+        margin-bottom: 1em;
+    }
+
+    textarea.form-control {
+        min-height: 150px;
+    }
+
+    .btn-animate:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 400px) {
+    /* Very small devices */
+    .contact-title {
+        font-size: 1.75rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .contact__form .form-control {
+        padding: 0.6rem .5rem;
+        font-size: 0.9rem;
+    }
+
+    .alert-animate {
+        font-size: 0.9rem;
+    }
+}
+
+/* Touch device adjustments */
+@media (hover: none) {
+    .btn-animate:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .input-animate:focus {
+        transform: none;
+        box-shadow: none;
+    }
+}
