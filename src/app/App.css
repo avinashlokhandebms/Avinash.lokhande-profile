@@ -1,23 +1,45 @@
-/* Extra small devices (phones, 576px and down) */
-@media only screen and (max-width: 575.98px) {
+/* Base styles for all devices */
+.s_c {
+    padding-top: 15px; /* Default padding */
+    transition: padding 0.3s ease;
+}
+
+/* Extra extra small devices (phones under 400px) */
+@media only screen and (max-width: 399.98px) {
+    .s_c {
+        padding-top: 10px;
+    }
+    
+    .page-enter,
+    .page-exit-active {
+        transform: translateY(30%);
+    }
+}
+
+/* Extra small devices (phones, 400px to 575.98px) */
+@media only screen and (min-width: 400px) and (max-width: 575.98px) {
     .s_c {
         padding-top: 20px;
     }
     
     .page-enter,
     .page-exit-active {
-        transform: translateY(50%);
+        transform: translateY(40%);
     }
 }
 
-/* Small devices (landscape phones, 576px and up) */
+/* Small devices (landscape phones, 576px to 767.98px) */
 @media only screen and (min-width: 576px) and (max-width: 767.98px) {
     .s_c {
         padding-top: 25px;
     }
+    
+    .page-enter {
+        transform: translateY(60%);
+    }
 }
 
-/* Medium devices (tablets, 768px and up) */
+/* Medium devices (tablets, 768px to 991.98px) */
 @media only screen and (min-width: 768px) and (max-width: 991.98px) {
     .s_c {
         padding-top: 30px;
@@ -29,14 +51,18 @@
     }
 }
 
-/* Large devices (desktops, 992px and up) */
+/* Large devices (small desktops, 992px to 1199.98px) */
 @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
     .s_c {
         padding-top: 35px;
     }
+    
+    .container {
+        max-width: 960px;
+    }
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
+/* Extra large devices (medium desktops, 1200px to 1399.98px) */
 @media only screen and (min-width: 1200px) and (max-width: 1399.98px) {
     .container,
     .container-lg,
@@ -46,10 +72,14 @@
     .container-xxl {
         max-width: 1140px;
     }
+    
+    .s_c {
+        padding-top: 40px;
+    }
 }
 
-/* XX-Large devices (larger desktops, 1400px and up) */
-@media only screen and (min-width: 1400px) {
+/* XX-Large devices (large desktops, 1400px to 1599.98px) */
+@media only screen and (min-width: 1400px) and (max-width: 1599.98px) {
     .container,
     .container-lg,
     .container-md,
@@ -64,18 +94,37 @@
     }
 }
 
+/* XXX-Large devices (extra large desktops, 1600px and up) */
+@media only screen and (min-width: 1600px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 1500px;
+    }
+    
+    .s_c {
+        padding-top: 60px;
+    }
+}
+
 /* Page transition animations */
 .page-enter {
     transform: translateY(100%);
+    opacity: 0;
 }
 
 .page-enter-active {
     transform: translateY(0%);
+    opacity: 1;
     transition: all 400ms ease-out;
 }
 
 .page-exit {
     transform: translateY(0%);
+    opacity: 1;
     position: absolute;
     left: 0;
     right: 0;
@@ -88,14 +137,55 @@
     right: 0;
     top: 0;
     transform: translateY(-130%);
+    opacity: 0;
     transition: all 400ms ease-out;
 }
 
+/* Foldable devices and very narrow screens */
+@media (max-width: 350px) {
+    .s_c {
+        padding-top: 5px;
+    }
+    
+    .page-enter,
+    .page-exit-active {
+        transform: translateY(20%);
+    }
+}
+
+/* Tall devices (like some tablets in portrait) */
+@media (min-height: 1000px) {
+    .s_c {
+        padding-top: 80px;
+    }
+}
+
+/* Short devices */
+@media (max-height: 500px) {
+    .s_c {
+        padding-top: 10px;
+    }
+    
+    .page-enter {
+        transform: translateY(30%);
+    }
+    
+    .page-exit-active {
+        transform: translateY(-30%);
+    }
+}
+
 /* Touch device adjustments */
-@media (hover: none) {
+@media (hover: none) and (pointer: coarse) {
     .page-enter,
     .page-exit-active {
         transition-duration: 300ms;
+    }
+    
+    /* Larger tap targets for touch devices */
+    button, a {
+        min-width: 44px;
+        min-height: 44px;
     }
 }
 
@@ -107,30 +197,89 @@
     .page-exit-active {
         transform: none !important;
         transition: none !important;
+        opacity: 1 !important;
     }
 }
 
 /* Portrait orientation specific styles */
-@media (orientation: portrait) and (max-width: 991.98px) {
-    .s_c {
-        padding-top: 25px;
+@media (orientation: portrait) {
+    @media (max-width: 991.98px) {
+        .s_c {
+            padding-top: 25px;
+        }
+    }
+    
+    /* Extra padding for tablets in portrait */
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        .s_c {
+            padding-top: 40px;
+        }
     }
 }
 
 /* Landscape orientation specific styles */
-@media (orientation: landscape) and (max-width: 991.98px) {
-    .s_c {
-        padding-top: 15px;
+@media (orientation: landscape) {
+    @media (max-width: 991.98px) {
+        .s_c {
+            padding-top: 15px;
+        }
+    }
+    
+    /* Adjustments for landscape phones */
+    @media (max-width: 767.98px) {
+        .page-enter {
+            transform: translateY(30%);
+        }
     }
 }
 
-/* Very small height devices */
-@media (max-height: 600px) {
-    .page-enter {
-        transform: translateY(50%);
+/* High density displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Add styles for retina displays */
+}
+
+/* Dark mode preference */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212;
+        --text-color: #ffffff;
+    }
+}
+
+/* Print styles */
+@media print {
+    .s_c {
+        padding-top: 0;
     }
     
+    .page-enter,
     .page-exit-active {
-        transform: translateY(-50%);
+        transform: none !important;
+    }
+}
+
+/* Very wide screens (ultra-wide monitors) */
+@media (min-width: 2000px) {
+    .container {
+        max-width: 1800px;
+    }
+    
+    .s_c {
+        padding-top: 80px;
+    }
+}
+
+/* Aspect ratio specific adjustments */
+@media (min-aspect-ratio: 21/9) {
+    .s_c {
+        padding-top: 30px;
+    }
+}
+
+/* Foldable devices split screen */
+@media (screen-spanning: fold) {
+    .s_c {
+        padding-left: env(fold-left);
+        padding-right: env(fold-right);
     }
 }
