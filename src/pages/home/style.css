@@ -1,9 +1,8 @@
+/* Base Styles */
 section {
     flex: 1 0 auto;
     position: relative;
     width: 100%;
-    -webkit-transition: all .5s ease-in;
-    -o-transition: all .5s ease-in;
     transition: all .5s ease-in;
 }
 
@@ -33,46 +32,28 @@ section {
 .intro_sec {
     height: calc(100vh - 60px);
     min-height: 700px;
-    height: 100vh;
     margin-top: -60px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-@media (max-width:991.98px) {
-    .intro_sec {
-        display: block;
-        height: auto!important;
-    }
-}
-
+/* Intro Section Layout */
 .intro_sec .text,
 .intro_sec .h_bg-image {
     width: 50%;
-}
-
-@media (max-width:991.98px) {
-    .intro_sec .text,
-    .intro_sec .h_bg-image {
-        width: 100%;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .intro_sec .intro {
     max-width: 450px;
     margin: 0 auto;
-}
-
-@media (max-width:991.98px) {
-    .intro_sec .intro {
-        max-width: 700px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+    padding: 2rem;
 }
 
 .intro_sec .intro .feature .wrap-icon {
-    background: 0 0!important;
-    width: auto;
-    height: auto;
+    background: none !important;
     margin-bottom: 0;
 }
 
@@ -96,8 +77,10 @@ section {
     background-position: center;
     min-height: 700px;
     position: relative;
+    filter: saturate(0.5);
 }
 
+/* Button Styles */
 .ac_btn {
     padding: 4px 19px;
     color: var(--secondary-color);
@@ -108,6 +91,7 @@ section {
     cursor: pointer;
     border-radius: 0;
     margin-right: 20px;
+    display: inline-block;
 }
 
 .ac_btn a {
@@ -116,23 +100,6 @@ section {
 
 .ac_btn:hover {
     box-shadow: 8px 8px 0px var(--text-color), -8px -8px 0px var(--text-color);
-}
-
-.ac_btn:hover .one {
-    opacity: 1;
-    transform: translate3d(0px, 0px, 0px);
-}
-
-.ac_btn:hover .two {
-    transform: translate3d(0px, 0px, 0px);
-}
-
-.ac_btn:hover .three {
-    transform: translate3d(0px, 0px, 0px);
-}
-
-.ac_btn:hover .four {
-    transform: translate3d(0px, 0px, 0px);
 }
 
 .ac_btn .ring {
@@ -148,7 +115,6 @@ section {
 .ac_btn .one {
     background-color: #000;
     transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
-    z-index: -3;
     z-index: -4;
 }
 
@@ -160,9 +126,8 @@ section {
 
 .ac_btn .three {
     background-color: var(--secondary-color);
-    z-index: -2;
     transition: all 0.7s cubic-bezier(0.55, 0, 0.1, 1);
-    z-index: -3;
+    z-index: -2;
 }
 
 #button_p {
@@ -174,6 +139,7 @@ section {
     color: var(--primary-color)
 }
 
+/* Image Block Styles */
 .intro_sec .h_bg-image .block {
     bottom: 50vh;
     max-width: 220px;
@@ -183,29 +149,12 @@ section {
     width: 250px;
     height: 220px;
     border-radius: 100%;
-    /* mix-blend-mode: multiply; */
     background-color: #2f514e;
-    z-index: 9999999999;
+    z-index: 9999;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-}
-
-@media (max-width:991.98px) {
-    .intro_sec .h_bg-image {
-        height: 600px;
-        min-height: 75vh;
-        margin-bottom: 30px;
-    }
-    .intro_sec .h_bg-image .block {
-        top: unset;
-        bottom: 0;
-        width: 100%;
-        margin: 0;
-        left: 50%;
-        transform: translate(-50%, 50%);
-    }
 }
 
 .intro_sec .h_bg-image .block .wrap-icon {
@@ -229,6 +178,175 @@ section {
     color: var(--text-color)
 }
 
-.intro_sec .h_bg-image {
-    filter: saturate(0.5);
+/* Responsive Breakpoints */
+@media (max-width: 1199.98px) {
+    .intro_sec .text h1 {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+    
+    .intro_sec .h_bg-image .block {
+        left: -90px;
+        width: 220px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .intro_sec {
+        display: block;
+        height: auto !important;
+        min-height: auto;
+    }
+    
+    .intro_sec .text,
+    .intro_sec .h_bg-image {
+        width: 100%;
+        min-height: auto;
+    }
+    
+    .intro_sec .intro {
+        max-width: 700px;
+        padding: 3rem 2rem;
+    }
+    
+    .intro_sec .h_bg-image {
+        height: 500px;
+        min-height: 50vh;
+        margin-bottom: 120px;
+    }
+    
+    .intro_sec .h_bg-image .block {
+        top: unset;
+        bottom: 0;
+        width: 200px;
+        height: 200px;
+        left: 50%;
+        transform: translate(-50%, 50%);
+    }
+    
+    .ac_btn {
+        margin-right: 15px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .intro_sec .text h1 {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+    
+    .intro_sec .intro {
+        padding: 2rem 1.5rem;
+    }
+    
+    .intro_sec .h_bg-image {
+        height: 400px;
+        margin-bottom: 100px;
+    }
+    
+    .intro_sec .h_bg-image .block {
+        width: 180px;
+        height: 180px;
+        padding: 20px;
+    }
+    
+    .ac_btn {
+        padding: 8px 15px;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .intro_sec {
+        margin-top: -40px;
+    }
+    
+    .intro_sec .text h1 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+    
+    .intro_sec .text h3 {
+        font-size: 15px;
+    }
+    
+    .intro_sec .intro {
+        padding: 1.5rem 1rem;
+    }
+    
+    .intro_sec .h_bg-image {
+        height: 350px;
+        margin-bottom: 80px;
+    }
+    
+    .intro_sec .h_bg-image .block {
+        width: 160px;
+        height: 160px;
+        padding: 15px;
+    }
+    
+    .intro_sec .h_bg-image .block h3 {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+    
+    .intro_sec .h_bg-image .block p {
+        font-size: 12px;
+    }
+    
+    .ac_btn {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .ac_btn:hover {
+        box-shadow: 4px 4px 0px var(--text-color), -4px -4px 0px var(--text-color);
+    }
+}
+
+@media (max-width: 400px) {
+    .intro_sec .text h1 {
+        font-size: 22px;
+    }
+    
+    .intro_sec .h_bg-image {
+        height: 300px;
+        margin-bottom: 70px;
+    }
+    
+    .intro_sec .h_bg-image .block {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .intro_sec .h_bg-image .block .wrap-icon {
+        font-size: 30px;
+    }
+}
+
+/* Touch device adjustments */
+@media (hover: none) {
+    .ac_btn:hover {
+        box-shadow: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .intro_sec {
+        height: auto !important;
+        min-height: auto !important;
+    }
+    
+    .intro_sec .h_bg-image {
+        display: none;
+    }
+    
+    .intro_sec .text {
+        width: 100% !important;
+    }
 }
