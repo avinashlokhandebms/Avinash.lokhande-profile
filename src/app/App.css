@@ -1,51 +1,4 @@
-/* 3D Perspective Container - Added at root level */
-html {
-    perspective: 1000px;
-    overflow-x: hidden;
-}
-
-/* 3D Page Transition Animations */
-.page-enter {
-    transform: translateY(100%) rotateX(15deg);
-    transform-origin: bottom center;
-    opacity: 0;
-}
-
-.page-enter-active {
-    transform: translateY(0%) rotateX(0deg);
-    opacity: 1;
-    transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.page-exit {
-    transform: translateY(0%) rotateX(0deg);
-    transform-origin: top center;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    opacity: 1;
-}
-
-.page-exit-active {
-    transform: translateY(-130%) rotateX(-15deg);
-    opacity: 0;
-    transition: all 600ms cubic-bezier(0.36, 0, 0.66, -0.56);
-}
-
-/* 3D Card Effect for Content - Added to your s_c class */
-.s_c {
-    transform-style: preserve-3d;
-    transition: transform 0.5s ease;
-}
-
-.s_c:hover {
-    transform: translateZ(20px);
-}
-
-/* Responsive 3D Adjustments */
-
-/* Extra small devices */
+/* Extra small devices (phones, 576px and down) */
 @media only screen and (max-width: 575.98px) {
     .s_c {
         padding-top: 20px;
@@ -53,23 +6,18 @@ html {
     
     .page-enter,
     .page-exit-active {
-        transform: translateY(50%) rotateX(10deg);
-    }
-    
-    /* Less intense 3D on small devices */
-    .s_c:hover {
-        transform: translateZ(10px);
+        transform: translateY(50%);
     }
 }
 
-/* Small devices */
+/* Small devices (landscape phones, 576px and up) */
 @media only screen and (min-width: 576px) and (max-width: 767.98px) {
     .s_c {
         padding-top: 25px;
     }
 }
 
-/* Medium devices */
+/* Medium devices (tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 991.98px) {
     .s_c {
         padding-top: 30px;
@@ -77,18 +25,18 @@ html {
     
     .page-enter,
     .page-exit-active {
-        transform: translateY(80%) rotateX(12deg);
+        transform: translateY(80%);
     }
 }
 
-/* Large devices */
+/* Large devices (desktops, 992px and up) */
 @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
     .s_c {
         padding-top: 35px;
     }
 }
 
-/* Extra large devices */
+/* Extra large devices (large desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) and (max-width: 1399.98px) {
     .container,
     .container-lg,
@@ -98,20 +46,9 @@ html {
     .container-xxl {
         max-width: 1140px;
     }
-    
-    /* Enhanced 3D for larger screens */
-    .s_c {
-        transform: translateZ(0);
-        transition: transform 0.5s ease, box-shadow 0.5s ease;
-    }
-    
-    .s_c:hover {
-        transform: translateZ(30px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    }
 }
 
-/* XX-Large devices */
+/* XX-Large devices (larger desktops, 1400px and up) */
 @media only screen and (min-width: 1400px) {
     .container,
     .container-lg,
@@ -127,16 +64,38 @@ html {
     }
 }
 
-/* 3D Touch Device Adjustments */
+/* Page transition animations */
+.page-enter {
+    transform: translateY(100%);
+}
+
+.page-enter-active {
+    transform: translateY(0%);
+    transition: all 400ms ease-out;
+}
+
+.page-exit {
+    transform: translateY(0%);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.page-exit-active {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    transform: translateY(-130%);
+    transition: all 400ms ease-out;
+}
+
+/* Touch device adjustments */
 @media (hover: none) {
     .page-enter,
     .page-exit-active {
         transition-duration: 300ms;
-        transform: translateY(50%) rotateX(5deg);
-    }
-    
-    .s_c {
-        transform: none !important;
     }
 }
 
@@ -149,69 +108,29 @@ html {
         transform: none !important;
         transition: none !important;
     }
-    
-    .s_c {
-        transform: none !important;
-        transition: none !important;
-    }
 }
 
-/* Portrait orientation */
+/* Portrait orientation specific styles */
 @media (orientation: portrait) and (max-width: 991.98px) {
     .s_c {
         padding-top: 25px;
     }
 }
 
-/* Landscape orientation */
+/* Landscape orientation specific styles */
 @media (orientation: landscape) and (max-width: 991.98px) {
     .s_c {
         padding-top: 15px;
-    }
-    
-    /* More pronounced 3D in landscape */
-    .page-enter {
-        transform: translateY(100%) rotateX(10deg) rotateY(5deg);
     }
 }
 
 /* Very small height devices */
 @media (max-height: 600px) {
     .page-enter {
-        transform: translateY(50%) rotateX(5deg);
+        transform: translateY(50%);
     }
     
     .page-exit-active {
-        transform: translateY(-50%) rotateX(-5deg);
-    }
-}
-
-/* 3D Floating Elements - Additional decorative elements */
-.s_c::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
-    transform: translateZ(-20px);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: -1;
-}
-
-.s_c:hover::before {
-    opacity: 1;
-}
-
-/* Responsive 3D Shadows */
-@media (min-width: 992px) {
-    .s_c {
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .s_c:hover {
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        transform: translateY(-50%);
     }
 }
