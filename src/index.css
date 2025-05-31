@@ -1,21 +1,45 @@
 :root {
-    --bg-color: #0c0c0c;
-    --primary-color: #0d0d0d;
-    --secondary-color: #fff;
-    --text-color: #fff;
-    --text-color-2: #fff;
-    --text-color-3: rgb(204, 0, 0);
-    --overlay-color: rgb(12 12 12 / 63%);
+    /* Dark theme (black background, white text) */
+    --bg-color: #000000;
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --text-color: #ffffff;
+    --text-color-2: #ffffff;
+    --text-color-3: rgb(204, 0, 0); /* Keeping red as accent */
+    --overlay-color: rgba(0, 0, 0, 0.7);
 }
 
 [data-theme="light"] {
-    --bg-color: #0ec4d1;
-    --primary-color: #0ec4d1;
-    --secondary-color: #002791;
-    --text-color: #002791;
-    --text-color-2: #002791;
+    /* Light theme (white background, black text) */
+    --bg-color: #ffffff;
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+    --text-color: #000000;
+    --text-color-2: #000000;
+    --text-color-3: rgb(204, 0, 0); /* Keeping red as accent */
+    --overlay-color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="inverse"] {
+    /* Inverse theme (white background, black text) - alternative to light */
+    --bg-color: #ffffff;
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+    --text-color: #000000;
+    --text-color-2: #000000;
     --text-color-3: rgb(204, 0, 0);
-    --overlay-color: rgb(255 255 255 / 70%);
+    --overlay-color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="high-contrast"] {
+    /* High contrast theme (black background, white text) */
+    --bg-color: #000000;
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --text-color: #ffffff;
+    --text-color-2: #ffffff;
+    --text-color-3: rgb(255, 0, 0); /* Brighter red for better contrast */
+    --overlay-color: rgba(0, 0, 0, 0.9);
 }
 
 html,
