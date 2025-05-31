@@ -9,6 +9,7 @@
 }
 
 [data-theme="light"] {
+    /* Original colors */
     --bg-color: #ffffff;
     --primary-color: #ffffff;
     --secondary-color: #000;
@@ -16,6 +17,48 @@
     --text-color-2: #000;
     --text-color-3: rgb(204, 0, 0);
     --overlay-color: rgb(255 255 255 / 70%);
+    
+    /* Additional colors */
+    --accent-color-1: #0066cc;       /* Blue accent */
+    --accent-color-2: #cc3300;       /* Red-orange accent */
+    --success-color: #28a745;        /* Green for success messages */
+    --warning-color: #ffc107;        /* Yellow for warnings */
+    --error-color: #dc3545;          /* Red for errors */
+    --info-color: #17a2b8;           /* Teal for informational messages */
+    
+    /* Neutral tones */
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
+    
+    /* State colors */
+    --hover-color: rgba(0, 0, 0, 0.05);
+    --active-color: rgba(0, 0, 0, 0.1);
+    --focus-color: rgba(0, 123, 255, 0.25);
+    
+    /* Border colors */
+    --border-color: #dee2e6;
+    --border-color-dark: #adb5bd;
+    
+    /* Shadow colors */
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    
+    /* Additional text colors */
+    --text-muted: #6c757d;
+    --text-light: #f8f9fa;
+    --text-dark: #212529;
+    
+    /* Background variants */
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
 }
 
 html,
