@@ -1,45 +1,21 @@
 :root {
-    /* Dark theme (black background, white text) */
-    --bg-color: #000000;
-    --primary-color: #000000;
-    --secondary-color: #ffffff;
-    --text-color: #ffffff;
-    --text-color-2: #ffffff;
-    --text-color-3: rgb(204, 0, 0); /* Keeping red as accent */
-    --overlay-color: rgba(0, 0, 0, 0.7);
+    --bg-color: #50586C;
+    --primary-color: #50586C;
+    --secondary-color: #DCE2F0;
+    --text-color: #DCE2F0;
+    --text-color-2: #DCE2F0;
+    --text-color-3: rgb(204, 0, 0);
+    --overlay-color: rgb(12 12 12 / 63%);
 }
 
 [data-theme="light"] {
-    /* Light theme (white background, black text) */
-    --bg-color: #ffffff;
-    --primary-color: #ffffff;
-    --secondary-color: #000000;
-    --text-color: #000000;
-    --text-color-2: #000000;
-    --text-color-3: rgb(204, 0, 0); /* Keeping red as accent */
-    --overlay-color: rgba(255, 255, 255, 0.7);
-}
-
-[data-theme="inverse"] {
-    /* Inverse theme (white background, black text) - alternative to light */
-    --bg-color: #ffffff;
-    --primary-color: #ffffff;
-    --secondary-color: #000000;
-    --text-color: #000000;
-    --text-color-2: #000000;
+    --bg-color: #DCE2F0;
+    --primary-color: #DCE2F0;
+    --secondary-color: #50586C;
+    --text-color: #50586C;
+    --text-color-2: #50586C;
     --text-color-3: rgb(204, 0, 0);
-    --overlay-color: rgba(255, 255, 255, 0.7);
-}
-
-[data-theme="high-contrast"] {
-    /* High contrast theme (black background, white text) */
-    --bg-color: #000000;
-    --primary-color: #000000;
-    --secondary-color: #ffffff;
-    --text-color: #ffffff;
-    --text-color-2: #ffffff;
-    --text-color-3: rgb(255, 0, 0); /* Brighter red for better contrast */
-    --overlay-color: rgba(0, 0, 0, 0.9);
+    --overlay-color: rgb(255 255 255 / 70%);
 }
 
 html,
