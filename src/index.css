@@ -1,11 +1,11 @@
 :root {
-    --bg-color:#2C3E50;
+    --bg-color: #2C3E50;
     --primary-color: #2C3E50;
     --secondary-color: #F5F5DC;
     --text-color: #F5F5DC;
     --text-color-2: #F5F5DC;
-    --text-color-3: rgb(204, 0, 0);
-    --overlay-color: rgb(12 12 12 / 63%);
+    --text-color-3: #CC0000;
+    --overlay-color: rgba(12, 12, 12, 0.63);
 }
 
 [data-theme="light"] {
@@ -13,69 +13,114 @@
     --primary-color: #F5F5DC;
     --secondary-color: #2C3E50;
     --text-color: #2C3E50;
-    --text-color-2:#2C3E50;
-    --text-color-3: rgb(204, 0, 0);
-    --overlay-color: rgb(255 255 255 / 70%);
+    --text-color-2: #2C3E50;
+    --text-color-3: #CC0000;
+    --overlay-color: rgba(255, 255, 255, 0.7);
 }
 
+/* Critical CSS - Inline this in your HTML head */
 html,
 body {
     height: 100%;
-}
-
-body {
     margin: 0;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: visible;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    padding: 0;
     font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     padding-top: 60px;
     border-left: 10px solid var(--primary-color);
     border-right: 10px solid var(--primary-color);
 }
 
+/* Non-critical CSS - Load this asynchronously */
+@media (prefers-reduced-motion: no-preference) {
+    /* Animation-related styles here */
+}
+
+/* Font face declarations - Consider self-hosting fonts */
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Raleway'), local('Raleway-Regular'),
+         url('/fonts/raleway.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Marcellus';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Marcellus'), local('Marcellus-Regular'),
+         url('/fonts/marcellus.woff2') format('woff2');
+}
+
+/* Optimized element styles */
 ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: Marcellus;
+h1, h2, h3, h4, h5, h6 {
+    font-family: Marcellus, serif;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
 }
 
-a,
-a:hover {
+a {
     color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--text-color-3);
 }
 
 p {
     word-break: break-word;
     hyphens: auto;
+    margin-top: 0;
+    margin-bottom: 1em;
+    line-height: 1.5;
 }
 
+/* Utility classes */
 .ovhidden {
     overflow: hidden;
 }
 
-.text_2,
+.text_2 {
+    color: var(--text-color-2);
+}
+
 .text_2:hover {
     color: var(--text-color-2);
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+.color_pr {
+    color: var(--primary-color) !important;
 }
 
+.color_sec {
+    color: var(--secondary-color);
+}
+
+/* Cursor styles - consider removing if not essential */
 .cursor__dot div {
     z-index: 999999 !important;
+    pointer-events: none;
 }
 
 .cursor__dot div:last-child {
@@ -87,10 +132,11 @@ code {
     background-color: var(--overlay-color) !important;
 }
 
-.color_pr {
-    color: var(--primary-color) !important;
-}
-
-.color_sec {
-    color: var(--secondary-color);
+/* Code styling */
+code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9em;
+    background-color: var(--overlay-color);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
 }
