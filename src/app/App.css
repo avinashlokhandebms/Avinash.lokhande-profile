@@ -1,285 +1,78 @@
-/* Base styles for all devices */
+/* Base & Responsive Padding */
 .s_c {
-    padding-top: 15px; /* Default padding */
-    transition: padding 0.3s ease;
+  padding-top: 15px;
+  transition: padding 0.3s ease;
 }
 
-/* Extra extra small devices (phones under 400px) */
-@media only screen and (max-width: 399.98px) {
-    .s_c {
-        padding-top: 10px;
-    }
-    
-    .page-enter,
-    .page-exit-active {
-        transform: translateY(30%);
-    }
-}
+@media (max-width: 399px) { .s_c { padding-top: 10px; } }
+@media (min-width: 400px) { .s_c { padding-top: 20px; } }
+@media (min-width: 576px) { .s_c { padding-top: 25px; } }
+@media (min-width: 768px) { .s_c { padding-top: 30px; } }
+@media (min-width: 992px) { .s_c { padding-top: 35px; } }
+@media (min-width: 1200px) { .s_c { padding-top: 40px; } }
+@media (min-width: 1400px) { .s_c { padding-top: 50px; } }
+@media (min-width: 1600px) { .s_c { padding-top: 60px; } }
 
-/* Extra small devices (phones, 400px to 575.98px) */
-@media only screen and (min-width: 400px) and (max-width: 575.98px) {
-    .s_c {
-        padding-top: 20px;
-    }
-    
-    .page-enter,
-    .page-exit-active {
-        transform: translateY(40%);
-    }
+/* Container Widths */
+.container {
+  max-width: 100%;
+  margin: 0 auto;
 }
+@media (min-width: 992px) { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+@media (min-width: 1400px) { .container { max-width: 1320px; } }
+@media (min-width: 1600px) { .container { max-width: 1500px; } }
 
-/* Small devices (landscape phones, 576px to 767.98px) */
-@media only screen and (min-width: 576px) and (max-width: 767.98px) {
-    .s_c {
-        padding-top: 25px;
-    }
-    
-    .page-enter {
-        transform: translateY(60%);
-    }
-}
-
-/* Medium devices (tablets, 768px to 991.98px) */
-@media only screen and (min-width: 768px) and (max-width: 991.98px) {
-    .s_c {
-        padding-top: 30px;
-    }
-    
-    .page-enter,
-    .page-exit-active {
-        transform: translateY(80%);
-    }
-}
-
-/* Large devices (small desktops, 992px to 1199.98px) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
-    .s_c {
-        padding-top: 35px;
-    }
-    
-    .container {
-        max-width: 960px;
-    }
-}
-
-/* Extra large devices (medium desktops, 1200px to 1399.98px) */
-@media only screen and (min-width: 1200px) and (max-width: 1399.98px) {
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl,
-    .container-xxl {
-        max-width: 1140px;
-    }
-    
-    .s_c {
-        padding-top: 40px;
-    }
-}
-
-/* XX-Large devices (large desktops, 1400px to 1599.98px) */
-@media only screen and (min-width: 1400px) and (max-width: 1599.98px) {
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl,
-    .container-xxl {
-        max-width: 1320px;
-    }
-    
-    .s_c {
-        padding-top: 50px;
-    }
-}
-
-/* XXX-Large devices (extra large desktops, 1600px and up) */
-@media only screen and (min-width: 1600px) {
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl,
-    .container-xxl {
-        max-width: 1500px;
-    }
-    
-    .s_c {
-        padding-top: 60px;
-    }
-}
-
-/* Page transition animations */
+/* Page Transitions */
 .page-enter {
-    transform: translateY(100%);
-    opacity: 0;
+  transform: translateY(30%);
+  opacity: 0;
 }
-
 .page-enter-active {
-    transform: translateY(0%);
-    opacity: 1;
-    transition: all 400ms ease-out;
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 400ms ease-out;
 }
-
 .page-exit {
-    transform: translateY(0%);
-    opacity: 1;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
+  transform: translateY(0);
+  opacity: 1;
+  position: absolute;
+  inset: 0;
 }
-
 .page-exit-active {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    transform: translateY(-130%);
-    opacity: 0;
-    transition: all 400ms ease-out;
+  transform: translateY(-30%);
+  opacity: 0;
+  transition: all 400ms ease-out;
 }
 
-/* Foldable devices and very narrow screens */
-@media (max-width: 350px) {
-    .s_c {
-        padding-top: 5px;
-    }
-    
-    .page-enter,
-    .page-exit-active {
-        transform: translateY(20%);
-    }
-}
+/* Special Cases */
+@media (max-width: 350px) { .s_c { padding-top: 5px; } }
+@media (max-height: 500px) { .s_c { padding-top: 10px; } }
+@media (min-height: 1000px) { .s_c { padding-top: 80px; } }
 
-/* Tall devices (like some tablets in portrait) */
-@media (min-height: 1000px) {
-    .s_c {
-        padding-top: 80px;
-    }
-}
-
-/* Short devices */
-@media (max-height: 500px) {
-    .s_c {
-        padding-top: 10px;
-    }
-    
-    .page-enter {
-        transform: translateY(30%);
-    }
-    
-    .page-exit-active {
-        transform: translateY(-30%);
-    }
-}
-
-/* Touch device adjustments */
+/* Accessibility */
 @media (hover: none) and (pointer: coarse) {
-    .page-enter,
-    .page-exit-active {
-        transition-duration: 300ms;
-    }
-    
-    /* Larger tap targets for touch devices */
-    button, a {
-        min-width: 44px;
-        min-height: 44px;
-    }
+  button, a { min-width: 44px; min-height: 44px; }
 }
-
-/* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
-    .page-enter,
-    .page-enter-active,
-    .page-exit,
-    .page-exit-active {
-        transform: none !important;
-        transition: none !important;
-        opacity: 1 !important;
-    }
+  .page-enter, .page-enter-active, 
+  .page-exit, .page-exit-active {
+    transform: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+  }
 }
 
-/* Portrait orientation specific styles */
-@media (orientation: portrait) {
-    @media (max-width: 991.98px) {
-        .s_c {
-            padding-top: 25px;
-        }
-    }
-    
-    /* Extra padding for tablets in portrait */
-    @media (min-width: 768px) and (max-width: 991.98px) {
-        .s_c {
-            padding-top: 40px;
-        }
-    }
-}
-
-/* Landscape orientation specific styles */
-@media (orientation: landscape) {
-    @media (max-width: 991.98px) {
-        .s_c {
-            padding-top: 15px;
-        }
-    }
-    
-    /* Adjustments for landscape phones */
-    @media (max-width: 767.98px) {
-        .page-enter {
-            transform: translateY(30%);
-        }
-    }
-}
-
-/* High density displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    /* Add styles for retina displays */
-}
-
-/* Dark mode preference */
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
-    :root {
-        --background-color: #121212;
-        --text-color: #ffffff;
-    }
+  :root {
+    --background-color: #121212;
+    --text-color: #ffffff;
+  }
 }
 
-/* Print styles */
+/* Print Styles */
 @media print {
-    .s_c {
-        padding-top: 0;
-    }
-    
-    .page-enter,
-    .page-exit-active {
-        transform: none !important;
-    }
-}
-
-/* Very wide screens (ultra-wide monitors) */
-@media (min-width: 2000px) {
-    .container {
-        max-width: 1800px;
-    }
-    
-    .s_c {
-        padding-top: 80px;
-    }
-}
-
-/* Aspect ratio specific adjustments */
-@media (min-aspect-ratio: 21/9) {
-    .s_c {
-        padding-top: 30px;
-    }
-}
-
-/* Foldable devices split screen */
-@media (screen-spanning: fold) {
-    .s_c {
-        padding-left: env(fold-left);
-        padding-right: env(fold-right);
-    }
+  .s_c { padding-top: 0; }
+  .page-enter, .page-exit-active { transform: none !important; }
 }
